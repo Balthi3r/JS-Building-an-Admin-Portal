@@ -16,11 +16,13 @@ bookList.forEach(book => {
     textInput.value=book.quantity;
     li.append(textInput);
 
-    document.createElement('input');
+    const button = document.createElement('input');
     button.type= 'button';
     button.value='Save';
+    li.append(button);
+
     button.addEventListener('click', async( ) =>{
-    const updatedBookResponse = await fetch('http://localhost:3001/updatedBooks',{
+    const updateBookResponse = await fetch('http://localhost:3001/updatedBooks',{
         method:'PATCH',
         headers: {
             'Content-Type': 'aplication/json'
